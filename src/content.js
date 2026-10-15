@@ -1,3 +1,4 @@
+const api = globalThis.browser ?? globalThis.chrome;
 const THRESHOLDS = {
   co: [
     [549, "10+"],
@@ -117,7 +118,7 @@ function confetti() {
 
 async function getTarget() {
   try {
-    const { target } = await browser.storage.sync.get({ target: 7 });
+    const { target } = await api.storage.sync.get({ target: 7 });
     const n = Number(target);
     return Number.isInteger(n) && n >= 4 && n <= 10 ? n : 7;
   } catch {
