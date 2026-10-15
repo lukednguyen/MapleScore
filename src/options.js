@@ -1,3 +1,4 @@
+const api = globalThis.browser ?? globalThis.chrome;
 const seg = document.getElementById("seg");
 const current = document.getElementById("current");
 const MIN = 4;
@@ -33,7 +34,7 @@ async function choose(n, focus) {
   value = n;
   render();
   if (focus) buttons[n - MIN].focus();
-  await browser.storage.sync.set({ target: n });
+  await api.storage.sync.set({ target: n });
 }
 
 seg.addEventListener("keydown", (e) => {
@@ -46,7 +47,7 @@ seg.addEventListener("keydown", (e) => {
 });
 
 render();
-browser.storage.sync.get({ target: 7 }).then(({ target }) => {
+api.storage.sync.get({ target: 7 }).then(({ target }) => {
   const n = Number(target);
   value = Number.isInteger(n) && n >= MIN && n <= MAX ? n : 7;
   render();
@@ -58,8 +59,8 @@ const access = document.getElementById("access");
 function showAccess(ok) {
   access.hidden = ok;
 }
-browser.permissions.contains({ origins: [ORIGIN] }).then(showAccess);
+api.permissions.contains({ origins: [ORIGIN] }).then(showAccess);
 // request() must run synchronously inside the click handler (user gesture)
 document.getElementById("allow").addEventListener("click", () => {
-  browser.permissions.request({ origins: [ORIGIN] }).then(showAccess);
+  api.permissions.request({ origins: [ORIGIN] }).then(showAccess);
 });

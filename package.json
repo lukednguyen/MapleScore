@@ -1,0 +1,14 @@
+{
+  "name": "maplescore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adds an NCLC column to TCF Canada result tables.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "build:chrome": "node scripts/build.mjs chrome",
+    "test": "node --test test/content.test.mjs",
+    "lint:firefox": "npm run build:firefox && npx --yes web-ext lint --source-dir dist/firefox",
+    "sign:firefox": "npm run build:firefox && npx --yes web-ext sign --channel=unlisted --source-dir dist/firefox --artifacts-dir dist/signed"
+  }
+}
