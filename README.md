@@ -6,7 +6,7 @@ Adds an NCLC column to TCF Canada result tables, for Firefox and Chrome.
 
 ```sh
 git clone https://github.com/lukednguyen/MapleScore.git
-cd tcf-nclc-extension
+cd MapleScore
 npm test
 npm run build
 ```
