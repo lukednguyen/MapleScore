@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "MapleScore",
+  "version": "1.0.0",
+  "description": "Adds an NCLC column to TCF Canada result tables.",
+  "browser_specific_settings": {
+    "gecko": { "id": "tcf-nclc@local" }
+  },
+  "icons": { "48": "icon-48.png", "96": "icon-96.png" },
+  "action": {
+    "default_title": "MapleScore",
+    "default_popup": "options.html",
+    "default_icon": { "48": "icon-48.png", "96": "icon-96.png" }
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://tcfcandidat.france-education-international.fr/*"
+  ],
+  "options_ui": { "page": "options.html", "open_in_tab": false },
+  "content_scripts": [
+    {
+      "matches": ["https://tcfcandidat.france-education-international.fr/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
