@@ -1,6 +1,6 @@
 {
   "name": "maplescore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Adds an NCLC column to TCF Canada result tables.",
   "scripts": {
