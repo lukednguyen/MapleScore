@@ -41,3 +41,7 @@ WEB_EXT_API_KEY=<jwt-issuer> WEB_EXT_API_SECRET=<jwt-secret> npm run sign:firefo
 Upload `dist/maplescore-chrome-<version>.zip` at https://chrome.google.com/webstore/devconsole ($5 one-time developer fee).
 
 Listing text: `store/listing.md`.
+
+## License
+
+Mozilla Public License 2.0. See `LICENSE`.
